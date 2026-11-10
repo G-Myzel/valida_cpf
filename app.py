@@ -7,10 +7,10 @@ def valida_cpf(cpf):
         return False
 
     valor = cpf.strip()
-    if not re.fullmatch(r"[\d.\-\s]+", valor):
+    if not re.fullmatch(r"[0-9.\-\s]+", valor):
         return False
 
-    digitos = re.sub(r"\D", "", valor)
+    digitos = re.sub(r"[^0-9]", "", valor)
     if len(digitos) != 11 or digitos == digitos[0] * 11:
         return False
 
